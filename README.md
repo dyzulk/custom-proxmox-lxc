@@ -21,7 +21,7 @@ Proyek ini bertujuan untuk memberikan panduan langkah demi langkah agar Anda dap
 
 ## 📂 Struktur Direktori
 
-```
+```directory
 docs/
 ├── ubuntu/
 │ ├── 20.04/
