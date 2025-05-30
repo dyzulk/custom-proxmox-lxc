@@ -1,4 +1,4 @@
-# 📦 LXC Template Customizer – Ubuntu 24.04 Mengaktifkan Login Root dan Password Authentication
+# 📦 LXC Template Customizer – Debian 12 Mengaktifkan Login Root dan Password Authentication
 
 Modifikasi file template LXC untuk mengaktifkan login root dan autentikasi password melalui SSH.
 
@@ -13,7 +13,7 @@ Template hasil modifikasi ini akan menghasilkan container LXC dengan konfigurasi
 ## 🧰 Prasyarat
 
 - Sistem Proxmox VE atau Debian/Ubuntu server
-- Template `.tar.zst` dari LXC (misal: `ubuntu-24.04-standard_24.04-2_amd64.tar.zst`)
+- Template `.tar.zst` dari LXC (misal: `debian-12-standard_12.7-1_amd64.tar.zst`)
 - Tool `zstd` dan `tar`
 
 ---
@@ -31,16 +31,16 @@ cd /var/lib/vz/template/cache/
 ### 2. Ekstrak template ke direktori kerja
 
 ```bash
-mkdir ubuntu-24.04-workdir
+mkdir debian-12-workdir
 ```
 ```bash
-tar --use-compress-program=unzstd -xvf ubuntu-24.04-standard_24.04-2_amd64.tar.zst -C ubuntu-24.04-workdir
+tar --use-compress-program=unzstd -xvf debian-12-standard_12.7-1_amd64.tar.zst -C debian-12-workdir
 ```
 
 ### 3. Ubah konfigurasi SSH
 
 ```bash
-nano ubuntu-24.04-workdir-workdir/etc/ssh/sshd_config
+nano debian-12-workdir/etc/ssh/sshd_config
 ```
 
 Cari dan ubah baris berikut:
@@ -62,11 +62,11 @@ PasswordAuthentication yes
 ### 4. Re-pack kembali template
 
 ```bash
-tar --use-compress-program=zstd -cf ubuntu-24.04-standard_24.04-2_amd64.tar.zst -C ubuntu-24.04-workdir .
+tar --use-compress-program=zstd -cf debian-12-standard_12.7-1_amd64.tar.zst -C debian-12-workdir .
 ```
 
 ```bash
-rm -rf ubuntu-24.04-workdir
+rm -rf debian-12-workdir
 ```
 
 ## 📌 Catatan Tambahan
